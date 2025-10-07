@@ -34,8 +34,10 @@ Both:
 - Resarch/prototyping differential amplifying and circuit layout
 
 Timeline:
-Prototype circuit by end of reading week  
-Testing finished by start of November
+Finish SPICE simulations by Oct 8 
+Prototype circuit by Oct 17
+Testing finished by Oct 31
+Finalize Design by Nov 7
 
 ## **Schematic**
 
