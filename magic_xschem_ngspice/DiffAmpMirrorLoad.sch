@@ -1,9 +1,9 @@
-v {xschem version=3.4.4 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N -80 100 -80 150 {
 lab=#net1}
@@ -167,10 +167,12 @@ sa=0 sb=0 sd=0
 model=pfet_01v8
 spiceprefix=X
 }
-C {code.sym} -490 120 0 0 {.simulator lang=spice
-.op
-.end}
-C {code.sym} -490 -70 0 0 {.include /home/harry/open_pdks/sky130/sky130A/libs.tech/ngspice/sky130.lib.spice
-.lib sky130.lib.spice tt}
 C {lab_pin.sym} -190 70 0 0 {name=p2 sig_type=std_logic lab=vin1}
 C {lab_pin.sym} 230 0 0 0 {name=p3 sig_type=std_logic lab=vout}
+C {code_shown.sym} -460 30 0 0 {name=s1 only_toplevel="false" value=".control
+set filetype=ascii
+save all
+op
+write diffamp.raw
+.endc"}
+C {code_shown.sym} -420 -240 0 0 {name=s2 only_toplevel=false value=".lib /home/harry/.ciel/sky130A/libs.tech/ngspice/sky130.lib.spice tt"}
