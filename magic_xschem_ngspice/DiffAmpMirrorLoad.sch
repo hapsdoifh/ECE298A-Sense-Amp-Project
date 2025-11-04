@@ -134,7 +134,7 @@ value=2p
 footprint=1206
 device="ceramic capacitor"}
 C {sky130_fd_pr/pfet3_01v8.sym} -100 -100 0 0 {name=M3
-W=1
+W=3
 L=0.3
 body=VDD
 nf=1
@@ -149,7 +149,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet3_01v8.sym} 130 -100 0 0 {name=M4
-W=1
+W=3
 L=0.3
 body=VDD
 nf=1
