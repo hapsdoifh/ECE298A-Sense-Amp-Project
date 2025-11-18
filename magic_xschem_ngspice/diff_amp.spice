@@ -1,0 +1,7 @@
+* SPICE3 file created from diff_amp.ext - technology: sky130A
+
+X0 VD12 Vtail Gnd VSUBS sky130_fd_pr__nfet_01v8 ad=0.42 pd=2.6 as=0.42 ps=2.6 w=0.7 l=0.4
+X1 Vdd VG34 VG34 Vdd sky130_fd_pr__pfet_01v8 ad=0.84 pd=4 as=0.84 ps=4 w=1.4 l=0.4
+X2 Vout Vin2 VD12 VSUBS sky130_fd_pr__nfet_01v8 ad=0.42 pd=2.6 as=0.42 ps=2.6 w=0.7 l=0.4
+X3 Vout VG34 Vdd Vdd sky130_fd_pr__pfet_01v8 ad=0.84 pd=4 as=0.84 ps=4 w=1.4 l=0.4
+X4 VG34 Vin1 VD12 VSUBS sky130_fd_pr__nfet_01v8 ad=0.42 pd=2.6 as=0.42 ps=2.6 w=0.7 l=0.4
