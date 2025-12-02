@@ -9,19 +9,19 @@ C {code_shown.sym} -110 -30 0 0 {name=s1 only_toplevel="false" value=".include /
 .lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 
 Vpower vdd gnd 1.8
-VinA vin1 gnd pulse(1.02, 0.98, 5ns, 0.1ns, 0.1ns, 5ns, 10.2ns) AC 0.01
-VinB vin2 gnd pulse(0.98, 1.02, 5ns, 0.1ns, 0.1ns, 5ns, 10.2ns) AC 0.01
+VinA vin1 gnd pulse(1.02, 0.98, 7.5ns, 0.1ns, 0.1ns, 7.5ns, 15.2ns) AC 0.01
+VinB vin2 gnd pulse(0.98, 1.02, 7.5ns, 0.1ns, 0.1ns, 7.5ns, 15.2ns) 
 VinC vtail gnd 1.2
 *VBase vBase gnd 0.3
 *Vinv vinv gnd 0.9
 
 .control
 op
-tran 0.01ns, 50ns
-*ac dec 50 1 1e9
-*dc VinV 0 1.8 0.01
-*plot db(v(vinv)/v(vin1))
-plot v(vin1) v(vin2) v(vinv) v(vinv2) v(vout)
-*print all
 print I(Vpower)
+tran 0.01ns, 50ns
+plot v(vin1) v(vin2) v(vinv) v(vinv2) v(vout)
+ac dec 50 1 1e9
+plot db(v(vinv)/v(vin1))
+dc VinA 0.9 1.0 0.001
+plot V(vout) V(vin1)
 .endc"}
