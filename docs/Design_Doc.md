@@ -13,7 +13,8 @@ The circuit has three parts:
 ![Alt text](images/Circuit_Analysis_2.png)
 *Small signal analysis, source: https://www.seas.ucla.edu/brweb/teaching/215A_F2014/diffmir2.pdf*
 
-A difference in voltage on the differential inputs creates a conflict in current flow through the two branches. This results in a final output current proportional to $g_m \times V_{diff}$ at the output node. Combined with a high output resistance, we get a high gain 
+All the MOSFETS are biased to saturation. The current mirror forces the two branch's current to be identical.
+Looking at the small signal model, a difference in voltage on the differential inputs creates a conflict in current flow through the two NMOS. This results in a final output current proportional to $g_m \times V_{diff}$ at the output node. Combined with a high enough output resistance, we get an amplification affect on $ V_{out} / (V_{in1} - V_{in2})$
 
 **Output buffers**: It is implemented by two CMOS inverters that take the amplified signal and drive it to full scaled analog output. It also isolates the high-impedance differential stage from whatever capacitive load comes next.
 
@@ -53,6 +54,11 @@ We first used LTSpice to simulate sizing before implementing the design in magic
 
 We initially tried to maximize the gain of the amplifier, but that reduced the bandwidth. 
 After learning that the differential input from the bitline would already be fairly high, and that we will be feeding the final output through a CMOS buffer. We increased the tail current to improve the bandwidth of the amplifier 
+
+We set the Length of all the transistors to be the minimum allowed by DRC.
+For the PMOS pair, the width affect the Vout's bias, we experimented with width such that the output swings are centered around 0.9V given 0.9V at the inputs
+For the input NMOS, a higher width increased the transconductance and improves the speed of the amplifier, thus we selected highest values possible that fit within our footprint
+For the back-to-back inverters, higher Widths allows for better rise and fall speeds, but Wn/Wp also affected the switching point of the inverteres. So we selected highest widths possible given our footprint and experimented to find Wn/Wp that switches at 0.9V 
 
 #### Tail Voltage Calculations:
 $$\frac{V_{DD} - V_G}{R} = \left[ \frac{1}{2} k_n (V_G - V_{th})^2 \right]$$
