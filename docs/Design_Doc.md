@@ -1,7 +1,7 @@
 ## Design Document
 
 ### Circuit Design
-![Alt text](images/schematic.png)
+![Alt text](images/Schematic.png)
 This is a continuous-time differential amplifier for sensing RAM bitlines. It take a tiny voltage difference on the bitlines and amplify it to a full-scale signal (0-1.8V) that the rest of the system can use. Our initial design was using the latched sense amp but then we eventually went with continuous-time operation because our architecture needs to monitor the bitline voltage throughout the read cycle, not just capture it at one clock edge.
 
 The circuit has three parts:
