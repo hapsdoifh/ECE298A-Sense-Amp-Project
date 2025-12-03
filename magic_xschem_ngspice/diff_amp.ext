@@ -1,4 +1,4 @@
-timestamp 1764724034
+timestamp 1764724933
 version 8.3
 tech sky130A
 style ngspice()
@@ -12,56 +12,62 @@ parameters sky130_fd_pr__res_xhigh_po_1p41 l=l+32
 parameters sky130_fd_pr__res_xhigh_po_0p69 l=l+32
 parameters sky130_fd_pr__res_xhigh_po_0p35 l=l+32
 parameters sky130_fd_pr__res_xhigh_po l=l+32 w=w
+port "vin1" 3 -160 -496 -144 -488 m1
+port "vin2" 4 -232 8 -216 16 m1
+port "vout" 1 784 200 800 208 m1
+port "vdd" 5 -176 584 -160 592 m1
+port "gnd" 2 208 -696 224 -680 m1
 node "a_904_n608#" 15778 0 904 -608 xres 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 40896 1280 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 node "Vtail" 1762 1718.27 296 -608 xpc 0 0 0 0 0 0 0 0 14720 528 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 29184 1664 0 0 125504 4272 47168 1632 0 0 0 0 0 0 0 0 0 0
 node "vs12" 2148 417.803 -32 -408 ndif 0 0 0 0 0 0 0 0 72320 2288 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 65088 2240 80000 2928 0 0 0 0 0 0 0 0 0 0
-node "vin1" 761 321.897 -88 -528 p 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20480 1200 0 0 6400 320 9984 544 0 0 0 0 0 0 0 0 0 0
-node "vin2" 893 320.383 160 -8 p 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20480 1200 0 0 22208 1088 21120 1104 0 0 0 0 0 0 0 0 0 0
-node "vout" 762 263.617 712 24 ndif 0 0 0 0 0 0 0 0 8320 368 16640 576 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 22464 912 35904 1696 0 0 0 0 0 0 0 0 0 0
+node "vin1" 761 322.02 -160 -496 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20480 1200 0 0 6400 320 9984 544 0 0 0 0 0 0 0 0 0 0
+node "vin2" 893 324.43 -232 8 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20480 1200 0 0 22208 1088 21120 1104 0 0 0 0 0 0 0 0 0 0
+node "vout" 762 263.617 784 200 m1 0 0 0 0 0 0 0 0 8320 368 16640 576 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 22464 912 35904 1696 0 0 0 0 0 0 0 0 0 0
 node "vinv" 1596 483.552 464 24 ndif 0 0 0 0 0 0 0 0 8320 368 16640 576 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 21248 1248 0 0 28864 1232 37696 1664 0 0 0 0 0 0 0 0 0 0
 node "vamp" 2144 429.31 216 -408 ndif 0 0 0 0 0 0 0 0 28800 880 20480 672 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 21248 1248 0 0 50752 1840 63616 2528 0 0 0 0 0 0 0 0 0 0
-node "vg34" 2669 523.289 -144 -408 ndif 0 0 0 0 0 0 0 0 28800 880 20480 672 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 33792 1952 0 0 57152 2160 82496 2928 0 0 0 0 0 0 0 0 0 0
-node "Vdd" 7671 2288.14 -200 152 nw 0 0 0 0 460928 3232 0 0 6336 320 74240 2496 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 169920 5728 191744 4912 0 0 0 0 0 0 0 0 0 0
-substrate "Gnd" 0 0 -176 -720 ppd 0 0 0 0 0 0 0 0 46080 1792 14400 480 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 55872 2208 179392 5664 0 0 0 0 0 0 0 0 0 0
-cap "vg34" "vamp" 113.373
-cap "vamp" "vin1" 0.27936
-cap "vin2" "vamp" 92.0992
-cap "vg34" "vin1" 77.0637
-cap "vamp" "vinv" 145.963
-cap "vin2" "vg34" 345.894
-cap "vs12" "Vdd" 8.34276
-cap "vamp" "Vtail" 55.2799
-cap "vin2" "vin1" 22.2458
-cap "vamp" "vout" 0.0504128
-cap "vg34" "vinv" 0.2976
-cap "vg34" "Vtail" 0.258297
+node "vg34" 2669 511.479 -144 -408 ndif 0 0 0 0 0 0 0 0 28800 880 20480 672 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 33792 1952 0 0 57152 2160 78656 2736 0 0 0 0 0 0 0 0 0 0
+node "vdd" 7671 2290.86 -176 584 m1 0 0 0 0 460928 3232 0 0 6336 320 74240 2496 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 169920 5728 191744 4912 0 0 0 0 0 0 0 0 0 0
+substrate "gnd" 0 0 208 -696 m1 0 0 0 0 0 0 0 0 46080 1792 14400 480 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 55872 2208 179392 5664 0 0 0 0 0 0 0 0 0 0
 cap "Vtail" "vin1" 0.202399
-cap "vin2" "vinv" 0.439944
-cap "vg34" "vout" 0.0606389
-cap "vin2" "Vtail" 2.39043
-cap "vin2" "vout" 0.106295
-cap "Vtail" "vinv" 36.2407
-cap "vinv" "vout" 116.728
-cap "Vtail" "vout" 28.5234
-cap "vamp" "Vdd" 575.039
-cap "vg34" "Vdd" 609.776
-cap "vin2" "Vdd" 15.9455
-cap "vs12" "vamp" 463.519
-cap "vinv" "Vdd" 525.491
-cap "Vtail" "Vdd" 5.66797
+cap "vs12" "vin2" 131.204
+cap "Vtail" "vin2" 2.39043
 cap "vs12" "vg34" 290.213
-cap "vout" "Vdd" 385.942
-cap "vs12" "vin1" 53.5819
-cap "vin2" "vs12" 131.204
+cap "vin1" "vin2" 22.2458
+cap "Vtail" "vg34" 0.258297
+cap "Vtail" "vout" 28.5234
+cap "vin1" "vg34" 74.3223
+cap "vamp" "vs12" 463.519
+cap "vs12" "vdd" 8.34276
+cap "vamp" "Vtail" 55.2799
+cap "Vtail" "vdd" 5.66797
+cap "Vtail" "vinv" 36.2407
+cap "vin2" "vg34" 316.103
+cap "vamp" "vin1" 0.27936
+cap "vin1" "vdd" 2.63885
+cap "vout" "vin2" 0.106295
+cap "vout" "vg34" 0.0606389
+cap "vamp" "vin2" 92.0992
+cap "vin2" "vdd" 22.229
+cap "vinv" "vin2" 0.439944
+cap "vamp" "vg34" 113.373
+cap "vg34" "vdd" 594.153
+cap "vinv" "vg34" 0.2976
+cap "vamp" "vout" 0.0504128
+cap "vout" "vdd" 385.942
+cap "vinv" "vout" 116.728
 cap "vs12" "Vtail" 51.4616
-device rsubckt sky130_fd_pr__res_xhigh_po 904 -608 905 -607 l=568 w=72 "Gnd" "a_904_n608#" 0 0 "Vdd" 72 48960,1504 "Vtail" 72 43776,1360
-device msubckt sky130_fd_pr__nfet_01v8 680 -408 681 -407 l=32 w=184 "Gnd" "Vtail" 64 0 "Gnd" 184 14720,528 "Vtail" 184 14720,528
-device msubckt sky130_fd_pr__nfet_01v8 432 -408 433 -407 l=32 w=184 "Gnd" "Vtail" 64 0 "vs12" 184 14720,528 "Gnd" 184 14720,528
-device msubckt sky130_fd_pr__nfet_01v8 184 -408 185 -407 l=32 w=360 "Gnd" "vin2" 64 0 "vs12" 360 28800,880 "vamp" 360 28800,880
-device msubckt sky130_fd_pr__nfet_01v8 -64 -408 -63 -407 l=32 w=360 "Gnd" "vin1" 64 0 "vg34" 360 28800,880 "vs12" 360 28800,880
-device msubckt sky130_fd_pr__nfet_01v8 680 24 681 25 l=32 w=104 "Gnd" "vinv" 64 0 "Gnd" 104 8320,368 "vout" 104 8320,368
-device msubckt sky130_fd_pr__nfet_01v8 432 24 433 25 l=32 w=104 "Gnd" "vamp" 64 0 "Gnd" 104 8320,368 "vinv" 104 8320,368
-device msubckt sky130_fd_pr__pfet_01v8 680 288 681 289 l=32 w=208 "Vdd" "vinv" 64 0 "Vdd" 208 16640,576 "vout" 208 16640,576
-device msubckt sky130_fd_pr__pfet_01v8 432 288 433 289 l=32 w=208 "Vdd" "vamp" 64 0 "Vdd" 208 16640,576 "vinv" 208 16640,576
-device msubckt sky130_fd_pr__pfet_01v8 184 240 185 241 l=32 w=256 "Vdd" "vg34" 64 0 "Vdd" 256 20480,672 "vamp" 256 20480,672
-device msubckt sky130_fd_pr__pfet_01v8 -64 240 -63 241 l=32 w=256 "Vdd" "vg34" 64 0 "vg34" 256 20480,672 "Vdd" 256 20480,672
+cap "vamp" "vdd" 575.039
+cap "vamp" "vinv" 145.963
+cap "vs12" "vin1" 53.5819
+cap "vinv" "vdd" 525.491
+device rsubckt sky130_fd_pr__res_xhigh_po 904 -608 905 -607 l=568 w=72 "gnd" "a_904_n608#" 0 0 "vdd" 72 48960,1504 "Vtail" 72 43776,1360
+device msubckt sky130_fd_pr__nfet_01v8 680 -408 681 -407 l=32 w=184 "gnd" "Vtail" 64 0 "gnd" 184 14720,528 "Vtail" 184 14720,528
+device msubckt sky130_fd_pr__nfet_01v8 432 -408 433 -407 l=32 w=184 "gnd" "Vtail" 64 0 "vs12" 184 14720,528 "gnd" 184 14720,528
+device msubckt sky130_fd_pr__nfet_01v8 184 -408 185 -407 l=32 w=360 "gnd" "vin2" 64 0 "vs12" 360 28800,880 "vamp" 360 28800,880
+device msubckt sky130_fd_pr__nfet_01v8 -64 -408 -63 -407 l=32 w=360 "gnd" "vin1" 64 0 "vg34" 360 28800,880 "vs12" 360 28800,880
+device msubckt sky130_fd_pr__nfet_01v8 680 24 681 25 l=32 w=104 "gnd" "vinv" 64 0 "gnd" 104 8320,368 "vout" 104 8320,368
+device msubckt sky130_fd_pr__nfet_01v8 432 24 433 25 l=32 w=104 "gnd" "vamp" 64 0 "gnd" 104 8320,368 "vinv" 104 8320,368
+device msubckt sky130_fd_pr__pfet_01v8 680 288 681 289 l=32 w=208 "vdd" "vinv" 64 0 "vdd" 208 16640,576 "vout" 208 16640,576
+device msubckt sky130_fd_pr__pfet_01v8 432 288 433 289 l=32 w=208 "vdd" "vamp" 64 0 "vdd" 208 16640,576 "vinv" 208 16640,576
+device msubckt sky130_fd_pr__pfet_01v8 184 240 185 241 l=32 w=256 "vdd" "vg34" 64 0 "vdd" 256 20480,672 "vamp" 256 20480,672
+device msubckt sky130_fd_pr__pfet_01v8 -64 240 -63 241 l=32 w=256 "vdd" "vg34" 64 0 "vg34" 256 20480,672 "vdd" 256 20480,672
