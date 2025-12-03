@@ -59,6 +59,14 @@ ext2spice cthresh 0
 ext2spice
 ```
 
+We used 3 types of tests:
+
+- DC Sweep to find the operating points of the circuit
+
+- Transient analysis at 66MHz (TinyTapeout max speed) to find the rise/fall times and runtime power disspation
+
+- AC Analysis to find the gain and bandwidth of the amplifier
+
 | Specification | Method |
 | ----- | ----- |
 | Gain | AC Sweep |
@@ -68,6 +76,8 @@ ext2spice
 | Avg Consumption |  Transient analysis|
 | Rise Time | Transient Analysis |
 | Fall Time | Transient Analysis |
+| Delay Time | Transient Analysis |
+
 
 ### Test Results
 ![Alt text](images/DC_Analysis.png)
@@ -78,11 +88,12 @@ ext2spice
 | ----- | ----- |
 | DC Gain | 19.918 dB |
 | Bandwidth | 3dB at 223.04 MHz |
-| Switching Point | 0.01V |
+| Switching Point | 0.8986 V |
 | Sensitivity | 0.1V |
 | Avg Consumption | 183.96 uW |
 | Rise Time | 76.38ps |
 | Fall Time | 65.69ps |
+| Delay Time (@66MHZ) | 527.27 ps |
 | Operating Voltage | 1.8V |
 | Transistor Count | 10 |
 | Layout footprint | 6.64 x 6.92 microns |
