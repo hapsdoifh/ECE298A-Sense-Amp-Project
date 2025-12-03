@@ -49,29 +49,36 @@ After learning that the differential input from the bitline would already be fai
 ### Testing methodology:
 We used ngspice to test the extracted spice files from magic
 
+We included all parasitic capacitances:
+```
+extract all
+ext2spice subckt top
+ext2spice cthresh 0 
+ext2spice
+```
+
 | Specification | Method |
 | ----- | ----- |
-| Gain | AC Sweep at the inputs |
-| Gain Bandwidth |  AC Sweep at the inputs |
-| Sensitivity | DC sweep at the input |
-| Static Consumption | DC operating point analysis |
-| Switching Avg Consumption |  Transient analysis at 66MHz |
+| Gain | AC Sweep |
+| Gain Bandwidth |  AC Sweep |
+| Switching Point | AC Sweep |
+| Sensitivity | DC sweep |
+| Avg Consumption |  Transient analysis at 66MHz |
 | Rise Time | Transient Analysis |
 | Fall Time | Transient Analysis |
-| Operating Voltage | 1.8V |
-| Transistor Count | 10 |
 
 ### Test Results
-
+![Alt text](images/DC_Analysis.png)
+![Alt text](images/Transient_Analysis.png)
 | Specification | Tested Value |
 | ----- | ----- |
-| Gain | 14 dB |
-| Gain Bandwidth | 3dB at 100MHz |
-| Sensitivity | 0.01V |
-| Power Consumption | ~0.2 mW |
-| Switching Avg Consumption | ~0.2 mW |
-| Rise Time | 15ns |
-| Fall Time | 15ns |
+| DC Gain | 19.918 dB |
+| Bandwidth | 3dB at 223.04 MHz |
+| Switching Point | 0.01V |
+| Sensitivity | 0.1V |
+| Avg Consumption | 183.96 uW |
+| Rise Time | 76.38ps |
+| Fall Time | 65.69ps |
 | Operating Voltage | 1.8V |
 | Transistor Count | 10 |
 
