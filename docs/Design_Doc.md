@@ -5,9 +5,15 @@
 This is a continuous-time differential amplifier for sensing RAM bitlines. It take a tiny voltage difference on the bitlines and amplify it to a full-scale signal (0-1.8V) that the rest of the system can use. Our initial design was using the latched sense amp but then we eventually went with continuous-time operation because our architecture needs to monitor the bitline voltage throughout the read cycle, not just capture it at one clock edge.
 
 The circuit has three parts:
-**Difference Amplifier**: It Uses cross-coupled PMOS and NMOS pairs. There's two NMOS transistors handling positive swings and two PMOS for negative swings, all wired with positive feedback. When one side starts winning, the feedback helps it win harder. It will generate a current difference in the output (around 2x difference in current across the two NMOS), This current charges the parasitic node capacitances, causing the internal node voltages to diverge, thus creating a larger voltage difference at the output.
+**Current mirror**: 2 PMOS transistors keeps the sum of the current across the two NMOS fixed and keeps them in saturation so they have decent gain and don't drift around when the common-mode voltage changes.
 
-**Current mirror**: It keeps the sum of the current across the two NMOS fixed and keeps them in saturation so they have decent gain and don't drift around when the common-mode voltage changes.
+**Difference Amplifier**: 
+![Alt text](images/diff_amp.png)
+*Differential Amplifier, source: https://electronics.stackexchange.com/questions/542529/differential-pair-active-load-contradiction*
+![Alt text](images/Circuit_Analysis_2.png)
+*Small signal analysis, source: https://www.seas.ucla.edu/brweb/teaching/215A_F2014/diffmir2.pdf*
+
+A difference in voltage on the differential inputs creates a conflict in current flow through the two branches. This results in a final output current proportional to $g_m \times V_{diff}$ at the output node. Combined with a high output resistance, we get a high gain 
 
 **Output buffers**: It is implemented by two CMOS inverters that take the amplified signal and drive it to full scaled analog output. It also isolates the high-impedance differential stage from whatever capacitive load comes next.
 
@@ -47,6 +53,12 @@ We first used LTSpice to simulate sizing before implementing the design in magic
 
 We initially tried to maximize the gain of the amplifier, but that reduced the bandwidth. 
 After learning that the differential input from the bitline would already be fairly high, and that we will be feeding the final output through a CMOS buffer. We increased the tail current to improve the bandwidth of the amplifier 
+
+#### Tail Voltage Calculations:
+$$\frac{V_{DD} - V_G}{R} = \left[ \frac{1}{2} k_n (V_G - V_{th})^2 \right]$$
+$$\frac{R k_n}{2} V_G^2 + (1 - R k_n V_{th})V_G + \left(\frac{R k_n}{2} V_{th}^2 - V_{DD}\right) = 0$$
+$$V_G = \frac{-(1 - R k_n V_{th}) \pm \sqrt{(1 - R k_n V_{th})^2 - 4\left(\frac{R k_n}{2}\right)\left(\frac{R k_n}{2} V_{th}^2 - V_{DD}\right)}}{R k_n}$$
+$R_{sheet} = 2000 \Omega, \quad R = R_{sheet} \times W/L$
 
 ### Final Design:
 ![Alt text](images/Final_Design.png)
