@@ -48,7 +48,10 @@ We first used LTSpice to simulate sizing before implementing the design in magic
 We initially tried to maximize the gain of the amplifier, but that reduced the bandwidth. 
 After learning that the differential input from the bitline would already be fairly high, and that we will be feeding the final output through a CMOS buffer. We increased the tail current to improve the bandwidth of the amplifier 
 
-### Testing methodology:
+### Final Design:
+![Alt text](images/Final_Design.png)
+
+### Testing:
 We used ngspice to test the extracted spice files from magic
 
 We included all parasitic capacitances:
@@ -108,5 +111,5 @@ We considered removing the resistor for the tail current source to increase band
 #### Additional footprint reduction
 When verifying our final design for DRC, we realized we overlooked a space optimization that allows us to drastically reduce the length of the MOSFETS from around 0.4um to 0.16um. This further improved our bandwidth.
 
-#### Additional Width adjustments
+#### Transistor Width adjustments
 We initially based the sizing on LTspice simulation, and at the end we further  tweaked the sizing of the current mirror and output buffer to try and bias the output of the differential amplifier and the switching point of the inverterse to exactly 0.9V 
