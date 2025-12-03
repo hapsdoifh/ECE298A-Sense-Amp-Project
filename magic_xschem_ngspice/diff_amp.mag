@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1764724933
+timestamp 1764725471
 << nwell >>
 rect -4 312 96 332
 rect -4 304 452 312
@@ -540,6 +540,7 @@ rect -48 -340 452 -320
 rect -140 -360 452 -340
 << labels >>
 rlabel metal1 268 100 276 104 1 vinv
+port 6 n
 rlabel metal1 392 100 400 104 1 vout
 port 1 n
 rlabel metal1 -116 4 -108 8 1 vin2
@@ -548,6 +549,7 @@ rlabel metal1 -80 -248 -72 -244 1 vin1
 port 3 n
 rlabel metal1 32 72 40 76 1 vg34
 rlabel metal1 144 32 152 36 1 vamp
+port 7 n
 rlabel metal1 116 -236 124 -232 1 vs12
 rlabel metal1 380 -224 388 -220 1 Vtail
 rlabel metal1 104 -348 112 -340 1 gnd
