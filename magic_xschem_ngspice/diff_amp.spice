@@ -1,14 +1,14 @@
 * SPICE3 file created from diff_amp.ext - technology: sky130A
 
-X0 Gnd vtail VS12 Gnd sky130_fd_pr__nfet_01v8 ad=0.54 pd=3 as=0.54 ps=3 w=0.9 l=0.4
-X1 vout vinv2 Gnd Gnd sky130_fd_pr__nfet_01v8 ad=0.3 pd=2.2 as=0.3 ps=2.2 w=0.5 l=0.4
-X2 VS12 vin1 VG34 Gnd sky130_fd_pr__nfet_01v8 ad=1.08 pd=4.8 as=1.08 ps=4.8 w=1.8 l=0.4
-X3 vinv2 vinv Vdd Vdd sky130_fd_pr__pfet_01v8 ad=0.6 pd=3.2 as=0.6 ps=3.2 w=1 l=0.4
-X4 Vdd VG34 VG34 Vdd sky130_fd_pr__pfet_01v8 ad=0.36 pd=2.4 as=0.36 ps=2.4 w=0.6 l=0.4
-X5 vtail vtail Gnd Gnd sky130_fd_pr__nfet_01v8 ad=0.54 pd=3 as=0.54 ps=3 w=0.9 l=0.4
-X6 vout vinv2 Vdd Vdd sky130_fd_pr__pfet_01v8 ad=0.6 pd=3.2 as=0.6 ps=3.2 w=1 l=0.4
-X7 vinv vin2 VS12 Gnd sky130_fd_pr__nfet_01v8 ad=1.08 pd=4.8 as=1.08 ps=4.8 w=1.8 l=0.4
-X8 vinv VG34 Vdd Vdd sky130_fd_pr__pfet_01v8 ad=0.36 pd=2.4 as=0.36 ps=2.4 w=0.6 l=0.4
-X9 vinv2 vinv Gnd Gnd sky130_fd_pr__nfet_01v8 ad=0.3 pd=2.2 as=0.3 ps=2.2 w=0.5 l=0.4
-X10 Vdd vtail Gnd sky130_fd_pr__res_xhigh_po w=0.4 l=0.96
-C0 Vdd Gnd 2.22558f 
+X0 Vtail Vtail Gnd Gnd sky130_fd_pr__nfet_01v8 ad=0.368 pd=2.64 as=0.368 ps=2.64 w=0.92 l=0.16
+X1 vs12 vin1 vg34 Gnd sky130_fd_pr__nfet_01v8 ad=0.72 pd=4.4 as=0.72 ps=4.4 w=1.8 l=0.16
+X2 vamp vg34 Vdd Vdd sky130_fd_pr__pfet_01v8 ad=0.512 pd=3.36 as=0.512 ps=3.36 w=1.28 l=0.16
+X3 vamp vin2 vs12 Gnd sky130_fd_pr__nfet_01v8 ad=0.72 pd=4.4 as=0.72 ps=4.4 w=1.8 l=0.16
+X4 vout vinv Gnd Gnd sky130_fd_pr__nfet_01v8 ad=0.208 pd=1.84 as=0.208 ps=1.84 w=0.52 l=0.16
+X5 vout vinv Vdd Vdd sky130_fd_pr__pfet_01v8 ad=0.416 pd=2.88 as=0.416 ps=2.88 w=1.04 l=0.16
+X6 Gnd Vtail vs12 Gnd sky130_fd_pr__nfet_01v8 ad=0.368 pd=2.64 as=0.368 ps=2.64 w=0.92 l=0.16
+X7 Vdd Vtail Gnd sky130_fd_pr__res_xhigh_po w=0.36 l=0.76
+X8 vinv vamp Vdd Vdd sky130_fd_pr__pfet_01v8 ad=0.416 pd=2.88 as=0.416 ps=2.88 w=1.04 l=0.16
+X9 Vdd vg34 vg34 Vdd sky130_fd_pr__pfet_01v8 ad=0.512 pd=3.36 as=0.512 ps=3.36 w=1.28 l=0.16
+X10 vinv vamp Gnd Gnd sky130_fd_pr__nfet_01v8 ad=0.208 pd=1.84 as=0.208 ps=1.84 w=0.52 l=0.16
+C0 Vdd Gnd 2.28214f 

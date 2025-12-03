@@ -14,15 +14,15 @@ VinB vin2 gnd DC 0.9 pulse(0.92, 0.88, 7.5ns, 0.1ns, 0.1ns, 7.5ns, 15.2ns)
 
 .control
 op
-print I(Vpower) v(vout) v(vinv)
+print I(Vpower) v(vout) v(vamp)
 
 tran 0.01ns, 50ns
-plot v(vin1) v(vin2) v(vinv) v(vout)
+plot v(vin1) v(vin2) v(vamp) v(vout)
 
 ac dec 50 1 1e9
-plot db(v(vinv)/v(vin1))
+plot db(v(vamp)/v(vin1))
 
 dc VinA 0.9 1.0 0.001
-plot V(vout) V(vinv) V(vin1)
+plot V(vout) V(vamp) V(vin1)
 
 .endc"}
