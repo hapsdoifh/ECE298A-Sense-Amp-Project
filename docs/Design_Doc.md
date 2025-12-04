@@ -5,6 +5,7 @@
 This is a continuous-time differential amplifier for sensing RAM bitlines. It take a tiny voltage difference on the bitlines and amplify it to a full-scale signal (0-1.8V) that the rest of the system can use. Our initial design was using the latched sense amp but then we eventually went with continuous-time operation because our architecture needs to monitor the bitline voltage throughout the read cycle, not just capture it at one clock edge.
 
 The circuit has three parts:
+
 **Current Source**: 2 NMOS transistors keeps the sum of the total current across the two branches fixed and keeps them in saturation so they don't drift around when the common-mode voltage changes.
 
 **Difference Amplifier**: 
@@ -17,23 +18,23 @@ The circuit has three parts:
 All the MOSFETS are biased to saturation. The current mirror forces the two branch's current to be identical.
 Looking at the small signal model, a difference in voltage on the differential inputs creates a conflict in current flow through the two NMOS. This results in a final output current proportional to $g_m \times V_{diff}$ at the output node. Combined with a high enough output resistance, we get an amplification affect on $\frac{V_{out}}{V_{in1} - V_{in2}}$
 
-**Output buffers**: It is implemented by two CMOS inverters that take the amplified signal and drive it to full scaled digital output. It also isolates the high-impedance differential stage from whatever capacitive load comes next.
+**Output buffers**: It is implemented by two CMOS inverters that take the amplified signal and drive it to full scaled digital output.
 
 #### Iteration 1
-Got the design proposal done by Oct 8 and created a rough circuit in LTSpice. At this point it was just the basic differential pair with two NMOS inputs and PMOS loads. The simulation showed it could amplify the voltage difference a little bit, but the numbers were all over the place depending on what values we picked for the length and width for the transistors. Gain was anywhere from 5dB to 20dB just from changing transistor widths randomly. Clearly needed to be more systematic about sizing.
+We finsihed the the design proposal by Oct 8 and created a rough circuit in LTSpice. At this point it was just the basic differential pair with two NMOS inputs and PMOS loads. The simulation showed it could amplify the voltage difference, but the numbers were all over the place depending on what values we picked for the length and width for the transistors. 
 
 #### Iteration 2
-Spent the next few weeks (up to Oct 29) figuring out transistor dimensions. Started with minimum sizes and worked up from there. Tried a bunch of W/L ratios for the input pair. We noticed that wider transistors affected output bias and caused more current consumption. For the NMOS loads, we found that if they were too small the speed was slow. Ended up around W/L = 1μm/0.18μm for PMOS, 1.2μm/0.18μm for NMOS inputs.
+We spent the next few weeks (up to Oct 29) figuring out transistor dimensions. We started with minimum sizes and gradually increased the size. After a lot of experiements. We ended up around W/L = 1μm/0.18μm for PMOS, 1.2μm/0.18μm for NMOS inputs.
 
 #### Iteration 3
-Before Nov 5 we did final LTSpice simulation. Measured gain (around 36dB), bandwidth (~10 MHz), sensitivity (could detect 10mV differential). Then we started the Magic VLSI layout.
+Before Nov 5 we did final LTSpice simulation. Measured gain (around 36dB), sensitivity (could detect 10mV differential). Then we started the Magic VLSI layout.
 
 ### Layout in Magic VLSI:
 #### Iteration 1
-By Nov 13 we had a working differential amplifier in Magic. We learned to draw the transistors, extracted the design, ran ngspice, and the input signal can be amplified. Problem was the swing of the amplifier's output was still not in full scaled analog. During the Nov 13 lecture we found out we needed a CMOS buffer on the output to achieve that.
+By Nov 13 we had a working differential amplifier in Magic. We learned to draw the transistors, extracted the design, ran ngspice, and the input signal can be amplified. Problem was the amplifier's output was still not in full scaled analog. During the Nov 13 lecture we found out we needed a buffer on the output to achieve that.
 
 #### Iteration 2
-Next week (before Nov 20) we added the buffer stage by adding two CMOS inverter at first. Output swing got better but still wasn't quite 0V to 1.8V. We tried with a voltage divider to scale the output, which worked but was obviously not the best solution. Also we noticed the amplifier cannot work above 10MHz. TA looked at it and said the problem was our biasing. We were still using a voltage source instead of a proper current mirror for the tail current. Voltage source has zero output impedance which was killing our gain and making everything frequency dependent. We have to Switch to a current mirror by using two more transistors to set the bias.
+Next week (before Nov 20) we added the buffer stage by adding two CMOS inverter at first. Output swing reached 0V to 1.8V. But the switching point of the inverter was too low, we tried with a voltage divider to bias the first inverter, which worked but was obviously not a good solution. Also we noticed the amplifier cannot work above 10MHz. After the lecture, we learned that we can replace our voltage source with a current mirror to set the bias correctly.
 
 #### Iteration 3
 Dec 1 lecture, we were told our voltage divider and current mirror are not implemented correctly. 
