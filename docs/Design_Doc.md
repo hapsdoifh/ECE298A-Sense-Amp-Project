@@ -8,15 +8,16 @@ The circuit has three parts:
 **Current Source**: 2 NMOS transistors keeps the sum of the total current across the two branches fixed and keeps them in saturation so they don't drift around when the common-mode voltage changes.
 
 **Difference Amplifier**: 
+
 ![Alt text](images/diff_amp.png)
 *Differential Amplifier, source: https://electronics.stackexchange.com/questions/542529/differential-pair-active-load-contradiction*
 ![Alt text](images/Circuit_Analysis_2.png)
 *Small signal analysis, source: https://www.seas.ucla.edu/brweb/teaching/215A_F2014/diffmir2.pdf*
 
 All the MOSFETS are biased to saturation. The current mirror forces the two branch's current to be identical.
-Looking at the small signal model, a difference in voltage on the differential inputs creates a conflict in current flow through the two NMOS. This results in a final output current proportional to $g_m \times V_{diff}$ at the output node. Combined with a high enough output resistance, we get an amplification affect on $ V_{out} / (V_{in1} - V_{in2})$
+Looking at the small signal model, a difference in voltage on the differential inputs creates a conflict in current flow through the two NMOS. This results in a final output current proportional to $g_m \times V_{diff}$ at the output node. Combined with a high enough output resistance, we get an amplification affect on $\frac{V_{out}}{V_{in1} - V_{in2}}$
 
-**Output buffers**: It is implemented by two CMOS inverters that take the amplified signal and drive it to full scaled analog output. It also isolates the high-impedance differential stage from whatever capacitive load comes next.
+**Output buffers**: It is implemented by two CMOS inverters that take the amplified signal and drive it to full scaled digital output. It also isolates the high-impedance differential stage from whatever capacitive load comes next.
 
 #### Iteration 1
 Got the design proposal done by Oct 8 and created a rough circuit in LTSpice. At this point it was just the basic differential pair with two NMOS inputs and PMOS loads. The simulation showed it could amplify the voltage difference a little bit, but the numbers were all over the place depending on what values we picked for the length and width for the transistors. Gain was anywhere from 5dB to 20dB just from changing transistor widths randomly. Clearly needed to be more systematic about sizing.
@@ -62,8 +63,11 @@ For the back-to-back inverters, higher Widths allows for better rise and fall sp
 
 #### Tail Voltage Calculations:
 $$\frac{V_{DD} - V_G}{R} = \left[ \frac{1}{2} k_n (V_G - V_{th})^2 \right]$$
+
 $$\frac{R k_n}{2} V_G^2 + (1 - R k_n V_{th})V_G + \left(\frac{R k_n}{2} V_{th}^2 - V_{DD}\right) = 0$$
+
 $$V_G = \frac{-(1 - R k_n V_{th}) \pm \sqrt{(1 - R k_n V_{th})^2 - 4\left(\frac{R k_n}{2}\right)\left(\frac{R k_n}{2} V_{th}^2 - V_{DD}\right)}}{R k_n}$$
+
 $R_{sheet} = 2000 \Omega, \quad R = R_{sheet} \times W/L$
 
 ### Final Design:
