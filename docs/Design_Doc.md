@@ -23,7 +23,7 @@ Looking at the small signal model, a difference in voltage on the differential i
 Got the design proposal done by Oct 8 and created a rough circuit in LTSpice. At this point it was just the basic differential pair with two NMOS inputs and PMOS loads. The simulation showed it could amplify the voltage difference a little bit, but the numbers were all over the place depending on what values we picked for the length and width for the transistors. Gain was anywhere from 5dB to 20dB just from changing transistor widths randomly. Clearly needed to be more systematic about sizing.
 
 #### Iteration 2
-Spent the next few weeks (up to Oct 29) figuring out transistor dimensions. Started with minimum sizes and worked up from there. Tried a bunch of W/L ratios for the input pair. We noticed that wider transistors gave better bandwidth but ate more current. For the NMOS loads, we found that if they were too small the gain was small, but too big and the output voltage swing got limited. Ended up around W/L = 1μm/0.18μm for PMOS, 1.5μm/0.18μm for NMOS inputs.
+Spent the next few weeks (up to Oct 29) figuring out transistor dimensions. Started with minimum sizes and worked up from there. Tried a bunch of W/L ratios for the input pair. We noticed that wider transistors affected output bias and caused more current consumption. For the NMOS loads, we found that if they were too small the speed was slow. Ended up around W/L = 1μm/0.18μm for PMOS, 1.2μm/0.18μm for NMOS inputs.
 
 #### Iteration 3
 Before Nov 5 we did final LTSpice simulation. Measured gain (around 36dB), bandwidth (~10 MHz), sensitivity (could detect 10mV differential). Then we started the Magic VLSI layout.
