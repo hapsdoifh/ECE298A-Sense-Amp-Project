@@ -5,7 +5,7 @@
 This is a continuous-time differential amplifier for sensing RAM bitlines. It take a tiny voltage difference on the bitlines and amplify it to a full-scale signal (0-1.8V) that the rest of the system can use. Our initial design was using the latched sense amp but then we eventually went with continuous-time operation because our architecture needs to monitor the bitline voltage throughout the read cycle, not just capture it at one clock edge.
 
 The circuit has three parts:
-**Current mirror**: 2 NMOS transistors keeps the sum of the total current across the two branches fixed and keeps them in saturation so they don't drift around when the common-mode voltage changes.
+**Current Source**: 2 NMOS transistors keeps the sum of the total current across the two branches fixed and keeps them in saturation so they don't drift around when the common-mode voltage changes.
 
 **Difference Amplifier**: 
 ![Alt text](images/diff_amp.png)
