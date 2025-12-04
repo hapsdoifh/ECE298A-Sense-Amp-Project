@@ -115,7 +115,7 @@ We used 3 types of tests:
 | DC Gain | 19.918 dB |
 | Bandwidth | 3dB at 223.04 MHz |
 | Switching Point | 0.8986 V |
-| Sensitivity | 0.1V |
+| Sensitivity | 1.451 mV |
 | Avg Consumption | 183.96 uW |
 | Rise Time | 76.38ps |
 | Fall Time | 65.69ps |
